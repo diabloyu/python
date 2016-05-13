@@ -1,0 +1,29 @@
+#快速排序算法:
+def quicksort(arr)
+    if len(arr)<=1
+        return arr
+    pivot=arr[len(arr)/2]
+    left=[x for x in arr if x<pivot]
+    middle=[x for x in arr if x=pivot]
+    right=[x for x in arr if x>pivot]
+    return qiucksort(left)+middle+qiucksort(right)
+print qiucksort()
+  
+#quick sort
+def quickSort(L, low, high):
+    i = low 
+    j = high
+    if i >= j:
+        return L
+    key = L[i]
+    while i < j:
+        while i < j and L[j] >= key:
+            j = j-1                                                             
+        L[i] = L[j]
+        while i < j and L[i] <= key:    
+            i = i+1 
+        L[j] = L[i]
+    L[i] = key 
+    quickSort(L, low, i-1)
+    quickSort(L, j+1, high)
+    return L
